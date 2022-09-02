@@ -15,4 +15,16 @@ The wrapper does not include any `deposit`, `withdraw`, `redeem`, `mint` related
 
 ## Development
 * `forge compile`
-* `forge test --fork-url "ETH_MAINNET_RPC_URL" -vv` tests against mainnet
+* `forge test --fork-url <your_eth_mainnet_rpc_url> -vv` tests against mainnet
+
+## Deployment and Verification
+The code and commands below are tested on [Ropsten](https://ropsten.etherscan.io/address/0xa63510379fafa2757ed5d901bc14deedcb6c5a95#code).
+
+> **Warning**  
+>  You won't be able to read methods on Ropsten since the cbETH address is hardcoded to the Ethereum cbETH address. It is just a demonstration for the deployment and verification commands. 
+
+### Deploy
+```forge create --rpc-url <your_rpc_url> --private-key <your_private_key> src/cbETHEip4626ViewWrapper.sol:cbETHEip4626ViewWrapper```
+
+### Verify on Etherscan
+```forge verify-contract --chain-id 42 --num-of-optimizations 1000000 --compiler-version v0.8.16 <the_contract_address> src/cbETHEip4626ViewWrapper.sol:cbETHEip4626ViewWrapper <your_etherscan_api_key>```
