@@ -15,12 +15,14 @@ contract cbETHEip4626ViewWrapperTest is Test {
         assertGe(total, 1);
     }
     function testConvertToShares() public {
-        uint256 shares = wrapper.convertToShares(1);
-        assertLe(shares, 1);
+        uint256 shares = wrapper.convertToShares(1000000);
+        assertLe(shares, 1000000);
+        assertGe(shares, 1);
     }
 
     function testConvertToAssets() public {
-        uint256 assets = wrapper.convertToAssets(1);
-        assertGe(assets, 1);
+        uint256 assets = wrapper.convertToAssets(1000000);
+        assertGe(assets, 1000000);
+        assertLe(assets, 1000000000);
     }
 }

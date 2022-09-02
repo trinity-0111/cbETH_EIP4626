@@ -7,17 +7,18 @@ pragma solidity 0.8.16;
 contract cbETHEip4626ViewWrapper {
     IERC20 public constant cbETH = IERC20(0xBe9895146f7AF43049ca1c1AE358B0541Ea49704);
     address public constant asset = address(0);
+    uint256 private constant BASE_UNIT = 1e18;
 
     function totalAssets() public view returns (uint256) {
-        return cbETH.totalSupply() * cbETH.exchangeRate();
+        return cbETH.totalSupply() * cbETH.exchangeRate() / BASE_UNIT;
     }
 
     function convertToShares(uint256 assets) public view virtual returns (uint256) {
-        return assets / cbETH.exchangeRate();
+        return assets * BASE_UNIT / cbETH.exchangeRate() ;
     }
 
     function convertToAssets(uint256 shares) public view virtual returns (uint256) {
-        return shares * cbETH.exchangeRate();
+        return shares * cbETH.exchangeRate() / BASE_UNIT;
     }
 }
 
