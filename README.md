@@ -26,4 +26,4 @@ The wrapper does not include any `deposit`, `withdraw`, `redeem`, `mint` related
 ```forge create --rpc-url <your_rpc_url> --private-key <your_private_key> src/cbETHEip4626ViewWrapper.sol:cbETHEip4626ViewWrapper```
 
 ### Verification on Etherscan
-```forge verify-contract --chain-id 42 --num-of-optimizations 1000000 --compiler-version v0.8.16 <the_contract_address> src/cbETHEip4626ViewWrapper.sol:cbETHEip4626ViewWrapper <your_etherscan_api_key>```
+```forge verify-contract --chain-id 1 --num-of-optimizations 1000000 --compiler-version v0.8.16 <the_contract_address> src/cbETHEip4626ViewWrapper.sol:cbETHEip4626ViewWrapper <your_etherscan_api_key>```
